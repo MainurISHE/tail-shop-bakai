@@ -1,0 +1,13 @@
+<div class="card">
+    <img [src]="product().image" [alt]="product().title">
+
+    <h3>
+        {{ product().title }}
+    </h3>
+
+    <p>
+        ${{ product().price }}
+    </p>
+
+    <app-button text="Купить" variant="primary"/>
+</div>

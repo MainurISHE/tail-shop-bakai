@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
 @Component({
   selector: 'app-home-page',
-  standalone: true,
-  template: `<h1>Home page</h1>`,
+  imports: [],
+  templateUrl: './home.page.html',
+  styleUrl: './home.page.scss',
 })
 export class HomePage {}
