@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #000000;
+  --color-text-secondary: #82828b;
+
+  --radius-sm: 10px;
+  --radius-md: 19px;
+  --radius-lg: 20px;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  --container-width: 1440px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}

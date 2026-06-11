@@ -1,13 +1,29 @@
 <div class="card">
-    <img [src]="product().image" [alt]="product().title">
+  <div class="card-image">
+    <img [src]="product().image" [alt]="product().title" />
+
+    <button class="add-btn">+</button>
+  </div>
+
+  <div class="card-content">
+    <div class="price-row">
+      <span class="price"> {{ product().price }} ₽ </span>
+
+      @if (product().oldPrice) {
+        <span class="old-price"> {{ product().oldPrice }} ₽ </span>
+      }
+
+      @if (product().discount) {
+        <span class="discount"> -{{ product().discount }}% </span>
+      }
+    </div>
 
     <h3>
-        {{ product().title }}
+      {{ product().title }}
     </h3>
 
-    <p>
-        ${{ product().price }}
+    <p class="description">
+      {{ product().description }}
     </p>
-
-    <app-button text="Купить" variant="primary"/>
+  </div>
 </div>

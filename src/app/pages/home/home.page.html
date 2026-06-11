@@ -1,1 +1,27 @@
-<h1>Home page</h1>
+<app-hero/>
+
+<section class="new-products">
+  <div class="section-header">
+
+    <h2>Новинки ✨</h2>
+
+    <div class="section-actions">
+      <button class="arrows">
+        <img src="images/arrowLeft.svg" alt="Arrow Left">
+      </button>
+      <button class="arrows">
+        <img src="images/arrowRight.svg" alt="Arrow Right">
+      </button>
+      <button class="allBtn">
+        Все
+      </button>
+    </div>
+
+  </div>
+
+  <div class="products-grid">
+    @for (product of featuredProducts(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+</section>

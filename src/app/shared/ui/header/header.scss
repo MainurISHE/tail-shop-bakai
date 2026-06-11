@@ -1,22 +1,57 @@
 .header {
+  background: var(--color-surface);
+}
+
+.header-top {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
-}
 
-.nav {
-  display: flex;
-  gap: 24px;
+  height: 74px;
+
+  margin-bottom: 32px;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 700;
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.burger,
+.search-btn,
 .cart-btn {
-  padding: 10px 16px;
   border: none;
+  background: transparent;
   cursor: pointer;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+  gap: 33px;
+
+  padding: 16px 8px 16px 8px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: var(--color-text);
+
+  width: auto;
+  height: 46px;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
 }
