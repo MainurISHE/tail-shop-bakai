@@ -6,6 +6,8 @@
 
 .card-image {
   position: relative;
+  overflow: hidden;
+  border-radius: 16px;
 }
 
 .card-image img {
@@ -16,22 +18,46 @@
   border-radius: 16px;
 }
 
+.card-image::after {
+  content: '';
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: 56px;
+  height: 56px;
+
+  background: var(--color-background);
+
+  border-top-left-radius: 20px;
+
+  z-index: 1;
+}
+
 .add-btn {
   position: absolute;
 
-  right: 12px;
-  bottom: 12px;
+  right: 0;
+  bottom: 0;
 
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
 
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
 
-  background: #111;
+  font-size: 16px;
+  font-weight: 700;
+
+  background: #262626;
   color: white;
 
   cursor: pointer;
+
+  box-shadow: 0 0 0 8px var(--color-background);
+
+  z-index: 2;
 }
 
 .card-content {
@@ -49,6 +75,7 @@
 .price {
   font-weight: 700;
   font-size: 21px;
+  line-height: 21px;
 }
 
 .old-price {
@@ -66,8 +93,10 @@
   background: black;
   color: white;
 
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 17px;
   font-weight: 700;
+  align-items: center;
 }
 
 .description {

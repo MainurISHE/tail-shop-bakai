@@ -14,4 +14,25 @@ export class HomePage {
   productService = inject(ProductService);
 
   featuredProducts = computed(() => this.productService.products().slice(0, 4));
+
+  clothes = computed(() =>
+    this.productService
+      .products()
+      .filter((product) => product.category === 'clothes')
+      .slice(0, 4),
+  );
+
+  collar = computed(() =>
+    this.productService
+      .products()
+      .filter((product) => product.category === 'collar')
+      .slice(0, 4),
+  );
+
+  leash = computed(() =>
+    this.productService
+      .products()
+      .filter((product) => product.category === 'leash')
+      .slice(0, 4),
+  );
 }

@@ -2,7 +2,7 @@
   <div class="card-image">
     <img [src]="product().image" [alt]="product().title" />
 
-    <button class="add-btn">+</button>
+    <button class="add-btn" (click)="cartService.addToCart(product())">+</button>
   </div>
 
   <div class="card-content">
