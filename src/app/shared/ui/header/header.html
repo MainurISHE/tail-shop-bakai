@@ -13,8 +13,13 @@
         <img src="images/search.svg" alt="Search Icon" />
       </button>
 
-      <button class="cart-btn">
+      <button class="cart-btn" routerLink="/cart">
         <img src="images/cart.svg" alt="Cart Icon" />
+        @if (cartService.totalItems() > 0) {
+          <span class="cart-badge">
+            {{ cartService.totalItems() }}
+          </span>
+        }
       </button>
     </div>
   </div>

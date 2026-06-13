@@ -1,1 +1,19 @@
-<p>cart page!</p>
+<h1>Корзина</h1>
+
+@for (item of cartService.items(); track item.product.id) {
+  <div>
+    <h3>{{ item.product.title }}</h3>
+
+    <p>
+      Количество: {{ item.quantity }}
+      <button (click)="cartService.increaseQuantity(item.product.id)">+</button>
+      <button (click)="cartService.decreaseQuantity(item.product.id)">-</button>
+    </p>
+
+    <p>Цена: {{ item.product.price }} ₽</p>
+
+    <button (click)="cartService.removeFromCart(item.product.id)">Удалить</button>
+  </div>
+}
+
+<h2>Итого: {{ total() }}</h2>
