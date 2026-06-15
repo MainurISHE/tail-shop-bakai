@@ -1,19 +1,43 @@
-<h1>Корзина</h1>
+<a class="back-btn" routerLink="/">← Назад</a>
 
-@for (item of cartService.items(); track item.product.id) {
-  <div>
-    <h3>{{ item.product.title }}</h3>
+<div class="cart-page">
+  <h1>Корзина</h1>
 
-    <p>
-      Количество: {{ item.quantity }}
-      <button (click)="cartService.increaseQuantity(item.product.id)">+</button>
-      <button (click)="cartService.decreaseQuantity(item.product.id)">-</button>
-    </p>
+  @if (cartService.items().length === 0) {
+    <h2>Корзина пуста 🛒</h2>
+  }
 
-    <p>Цена: {{ item.product.price }} ₽</p>
+  <div class="cart-items">
+    @for (item of cartService.items(); track item.product.id) {
+      <div class="cart-item">
+        <img [src]="item.product.image" [alt]="item.product.title" />
 
-    <button (click)="cartService.removeFromCart(item.product.id)">Удалить</button>
+        <div class="cart-info">
+          <h3>{{ item.product.title }}</h3>
+
+          <p>{{ item.product.price }} ₽</p>
+
+          <div class="quantity-controls">
+            <button (click)="cartService.decreaseQuantity(item.product.id)">-</button>
+
+            <span>{{ item.quantity }}</span>
+
+            <button (click)="cartService.increaseQuantity(item.product.id)">+</button>
+          </div>
+        </div>
+
+        <button class="remove-btn" (click)="cartService.removeFromCart(item.product.id)">
+          Удалить
+        </button>
+      </div>
+    }
   </div>
-}
 
-<h2>Итого: {{ total() }}</h2>
+  @if (cartService.totalItems() > 0) {
+    <div class="cart-total">
+      <h2>Итого: {{ total() }} ₽</h2>
+
+      <button class="checkout-btn" routerLink="/checkout">Оформить заказ</button>
+    </div>
+  }
+</div>

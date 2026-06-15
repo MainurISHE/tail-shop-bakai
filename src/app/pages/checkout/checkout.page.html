@@ -1,0 +1,79 @@
+<a routerLink="/cart" class="back-btn">
+  ← Назад
+</a>
+
+<div class="checkout-page">
+  <h1>Оформление заказа</h1>
+
+  <div class="checkout-layout">
+
+    <form class="checkout-form" (ngSubmit)="submitOrder()">
+
+      <label>
+        Имя
+        <input
+          type="text"
+          placeholder="Введите ваше имя"
+          [(ngModel)]="name"
+          name="name"
+        />
+      </label>
+
+      <label>
+        Телефон
+        <input
+          type="tel"
+          placeholder="+996 500 123 456"
+          [(ngModel)]="phone"
+          name="phone"
+        />
+      </label>
+
+      <label>
+        Адрес доставки
+        <input
+          type="text"
+          placeholder="Укажите адрес доставки"
+          [(ngModel)]="address"
+          name="address"
+        />
+      </label>
+
+      <label>
+        Комментарий
+        <textarea
+          rows="4"
+          placeholder="Комментарий к заказу"
+          [(ngModel)]="comment"
+          name="comment"
+        ></textarea>
+      </label>
+
+      <button
+        type="submit"
+        class="submit-btn"
+        [disabled]="!name || !phone || !address"
+      >
+        Оформить заказ
+      </button>
+
+    </form>
+
+    <div class="order-summary">
+
+      <h3>Ваш заказ</h3>
+
+      <div class="summary-row">
+        <span>Товаров</span>
+        <span>{{ cartService.totalItems() }}</span>
+      </div>
+
+      <div class="summary-row total">
+        <span>Итого</span>
+        <span>{{ cartService.totalPrice() }} ₽</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>

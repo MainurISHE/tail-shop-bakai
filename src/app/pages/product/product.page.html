@@ -1,0 +1,49 @@
+<a class="back-btn" routerLink="/">
+  ← Назад
+</a>
+
+@if (product()) {
+  <div class="product-page">
+
+    <div class="product-image">
+      <img
+        [src]="product()!.image"
+        [alt]="product()!.title"
+      >
+    </div>
+
+    <div class="product-info">
+
+      <h1>
+        {{ product()!.title }}
+      </h1>
+
+      <div class="price-row">
+
+        <span class="price">
+          {{ product()!.price }} ₽
+        </span>
+
+        @if (product()!.oldPrice) {
+          <span class="old-price">
+            {{ product()!.oldPrice }} ₽
+          </span>
+        }
+
+      </div>
+
+      <p class="description">
+        {{ product()!.description }}
+      </p>
+
+      <button
+        class="add-btn"
+        (click)="cartService.addToCart(product()!)"
+      >
+        Добавить в корзину
+      </button>
+
+    </div>
+
+  </div>
+}

@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card" (click)="openProduct()">
   <div class="card-image">
     <img [src]="product().image" [alt]="product().title" />
 
-    <button class="add-btn" (click)="cartService.addToCart(product())">+</button>
+    <button class="add-btn" (click)="addToCart($event)">+</button>
   </div>
 
   <div class="card-content">

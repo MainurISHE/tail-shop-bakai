@@ -1,7 +1,6 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { CartItem } from './cart.types';
 import { Product } from '../../entities/product/product.types';
-import { filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +9,14 @@ export class CartService {
   items = signal<CartItem[]>([]);
 
   totalItems = computed(() => this.items().reduce((sum, item) => sum + item.quantity, 0));
+
+  totalPrice = computed(() =>
+    this.items().reduce((sum, item) => sum + item.product.price * item.quantity, 0),
+  );
+
+  clearCart() {
+    this.items.set([]);
+  }
 
   addToCart(product: Product) {
     this.items.update((items) => {

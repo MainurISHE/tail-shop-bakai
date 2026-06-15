@@ -1,10 +1,11 @@
 import { Component, inject, computed } from '@angular/core';
 import { CartService } from '../../features/cart/cart.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cart.page.html',
   styleUrl: './cart.page.scss',
 })
@@ -16,4 +17,5 @@ export class CartPage {
       .items()
       .reduce((sum, item) => sum + item.product.price * item.quantity, 0);
   });
+
 }
