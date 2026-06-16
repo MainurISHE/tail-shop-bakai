@@ -21,7 +21,7 @@ export class ProductService {
     {
       id: 2,
       title: 'Худи Милитари',
-      price: 1800.00,
+      price: 1800.0,
       image: 'products/suits/millitary-suit.svg',
       description:
         'Новый взгляд на милитари расцветку! На капюшоне также имеется принт. S Длина по спинке: 22-25см; обхват груди: 36-40см; обхват шеи: 20-24см. M Длина',
@@ -31,8 +31,8 @@ export class ProductService {
     {
       id: 3,
       title: 'Худи Champion',
-      price: 6490.00,
-      oldPrice: 9206.00,
+      price: 6490.0,
+      oldPrice: 9206.0,
       discount: 29,
       image: 'products/suits/champion.svg',
       description:
@@ -42,7 +42,7 @@ export class ProductService {
     {
       id: 4,
       title: 'Худи Колор-блок',
-      price: 1200.00,
+      price: 1200.0,
       image: 'products/suits/color-block.svg',
       description:
         'Контрастное худи из хлопка без начеса. Идеально для теплой весны. S Длина по спинке: 22-25см; обхват груди: 36-40см; обхват шеи: 20-24см. M Длина по',
@@ -51,8 +51,8 @@ export class ProductService {
     {
       id: 5,
       title: 'Свитшот Картошка Фри',
-      price: 700.00,
-      oldPrice: 1400.00,
+      price: 700.0,
+      oldPrice: 1400.0,
       discount: 50,
       image: 'products/suits/french-fries-suit.svg',
       description:
@@ -62,7 +62,7 @@ export class ProductService {
     {
       id: 6,
       title: 'Костюм Барабашка',
-      price: 4200.00,
+      price: 4200.0,
       image: 'products/suits/sheep-suit.svg',
       description:
         'Забавный плюшевый костюм. Ваш питомец будет в центре внимания на любом празднике! One size Длина по спинке: 26-29см; обхват груди: 40-44см; обхват ше',
@@ -71,8 +71,8 @@ export class ProductService {
     {
       id: 7,
       title: 'Худи Woof',
-      price: 1000.00,
-      oldPrice: 1500.00,
+      price: 1000.0,
+      oldPrice: 1500.0,
       discount: 33,
       image: 'products/suits/woof-suit.svg',
       description:
@@ -82,7 +82,7 @@ export class ProductService {
     {
       id: 8,
       title: 'Ошейник Total Black',
-      price: 1490.00,
+      price: 1490.0,
       image: 'products/collars/collar-total-black.svg',
       description:
         'Классический ошейник из ленты с двусторонней печатью с анатомической застежкой. Размер регулируется от 22 см до 40 см. One size Ширина 20 мм',
@@ -91,7 +91,7 @@ export class ProductService {
     {
       id: 9,
       title: 'Ошейник Red',
-      price: 1490.00,
+      price: 1490.0,
       image: 'products/collars/collar-red.svg',
       description:
         'Классический ошейник из ленты с двусторонней печатью с анатомической застежкой. Размер регулируется от 22 см до 40 см. One size Ширина 20 мм',
@@ -100,7 +100,7 @@ export class ProductService {
     {
       id: 10,
       title: 'Ошейник Rainbow',
-      price: 1490.00,
+      price: 1490.0,
       image: 'products/collars/collar-rainbow.svg',
       description:
         'Классический ошейник из ленты с двусторонней печатью с анатомической застежкой. Размер регулируется от 22 см до 40 см. One size Ширина 20 мм',
@@ -109,7 +109,7 @@ export class ProductService {
     {
       id: 11,
       title: 'Поводок Black',
-      price: 1300.00,
+      price: 1300.0,
       image: 'products/leashes/leash-black.svg',
       description:
         'Короткий поводок 1.2 м из ленты с двусторонней печатью для городского выгула. One size Ширина 20 мм Длина 120 мм',
@@ -118,7 +118,7 @@ export class ProductService {
     {
       id: 12,
       title: 'Поводок Red',
-      price: 1300.00,
+      price: 1300.0,
       image: 'products/leashes/leash-red.svg',
       description:
         'Короткий поводок 1.2 м из ленты с двусторонней печатью для городского выгула. One size Ширина 20 мм Длина 120 мм',
@@ -127,7 +127,7 @@ export class ProductService {
     {
       id: 13,
       title: 'Поводок-перестежка Black',
-      price: 2590.00,
+      price: 2590.0,
       image: 'products/leashes/leash-black-two.svg',
       description:
         'Универсальный поводок-перестежка с двумя карабинами для трех способов использования: через плечо, на поясе, как стандартный поводок. One size Ширина',
@@ -136,11 +136,11 @@ export class ProductService {
     {
       id: 14,
       title: 'Поводок Rainbow',
-      price: 1300.00,
+      price: 1300.0,
       image: 'products/leashes/leash-rainbow.svg',
       description:
         'Короткий поводок 1.2 м из ленты с двусторонней печатью для городского выгула. One size Ширина 20 мм Длина 120 мм',
       category: 'leash',
-    }
+    },
   ]);
 }

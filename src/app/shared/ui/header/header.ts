@@ -10,4 +10,9 @@ import { CartService } from '../../../features/cart/cart.service';
 })
 export class Header {
   cartService = inject(CartService)
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }

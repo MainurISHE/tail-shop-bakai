@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   background: var(--color-surface);
 }
 
@@ -78,4 +79,33 @@
 
   font-size: 12px;
   font-weight: 700;
+}
+
+.mobile-menu {
+  position: absolute;
+
+  top: 70px;
+  left: 16px;
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  min-width: 220px;
+
+  padding: 20px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #262626;
+  font-weight: 500;
 }

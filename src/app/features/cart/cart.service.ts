@@ -1,4 +1,5 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CartItem } from './cart.types';
 import { Product } from '../../entities/product/product.types';
 
@@ -7,16 +8,17 @@ import { Product } from '../../entities/product/product.types';
 })
 export class CartService {
   items = signal<CartItem[]>([]);
+  platformId = inject(PLATFORM_ID);
+
+  constructor() {
+    this.loadFromStorage();
+  }
 
   totalItems = computed(() => this.items().reduce((sum, item) => sum + item.quantity, 0));
 
   totalPrice = computed(() =>
     this.items().reduce((sum, item) => sum + item.product.price * item.quantity, 0),
   );
-
-  clearCart() {
-    this.items.set([]);
-  }
 
   addToCart(product: Product) {
     this.items.update((items) => {
@@ -42,11 +44,13 @@ export class CartService {
       ];
     });
 
-    alert('Товар успешно добавлен в корзину!');
+    this.saveToStorage();
   }
 
   removeFromCart(productId: number) {
     this.items.update((items) => items.filter((item) => item.product.id !== productId));
+
+    this.saveToStorage();
   }
 
   increaseQuantity(productId: number) {
@@ -60,6 +64,8 @@ export class CartService {
           : item,
       ),
     );
+
+    this.saveToStorage();
   }
 
   decreaseQuantity(productId: number) {
@@ -75,5 +81,28 @@ export class CartService {
         )
         .filter((item) => item.quantity > 0),
     );
+
+    this.saveToStorage();
+  }
+
+  clearCart() {
+    this.items.set([]);
+    this.saveToStorage();
+  }
+
+  private saveToStorage() {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('cart', JSON.stringify(this.items()));
+    }
+  }
+
+  private loadFromStorage() {
+    if (isPlatformBrowser(this.platformId)) {
+      const savedCart = localStorage.getItem('cart');
+
+      if (savedCart) {
+        this.items.set(JSON.parse(savedCart));
+      }
+    }
   }
 }

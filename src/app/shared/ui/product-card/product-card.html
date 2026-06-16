@@ -7,10 +7,10 @@
 
   <div class="card-content">
     <div class="price-row">
-      <span class="price"> {{ product().price }} ₽ </span>
+      <span class="price"> {{ product().price | number: '1.2-2' }} ₽ </span>
 
       @if (product().oldPrice) {
-        <span class="old-price"> {{ product().oldPrice }} ₽ </span>
+        <span class="old-price"> {{ product().oldPrice | number: '1.2-2'}} ₽ </span>
       }
 
       @if (product().discount) {

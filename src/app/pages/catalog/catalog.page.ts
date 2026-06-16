@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../entities/product/api/product.service';
 import { ProductCardComponent } from '../../shared/ui/product-card/product-card';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-catalog-page',
   standalone: true,
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, RouterLink],
   templateUrl: './catalog.page.html',
   styleUrl: './catalog.page.scss',
 })
