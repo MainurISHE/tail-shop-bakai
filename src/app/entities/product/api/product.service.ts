@@ -5,6 +5,14 @@ import { Product } from '../product.types';
   providedIn: 'root',
 })
 export class ProductService {
+  loading = signal(true);
+
+  constructor() {
+    setTimeout(() => {
+      this.loading.set(false);
+    }, 1000);
+  }
+
   products = signal<Product[]>([
     {
       id: 1,

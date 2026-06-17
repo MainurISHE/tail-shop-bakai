@@ -1,91 +1,147 @@
-<app-hero/>
+<app-hero />
 
-<section class="new-products">
-  <div class="section-header">
+@if (productService.loading()) {
 
-    <h2>Новинки ✨</h2>
-
-    <div class="section-actions">
-      <button class="arrow-btn">
-        <img src="images/arrowLeft.svg" alt="Arrow Left">
-      </button>
-      <button class="arrow-btn">
-        <img src="images/arrowRight.svg" alt="Arrow Right">
-      </button>
-      <button class="all-btn">
-        Все
-      </button>
+  <section class="new-products">
+    <div class="section-header">
+      <h2>Новинки ✨</h2>
     </div>
 
-  </div>
-
-  <div class="products-grid">
-    @for (product of featuredProducts(); track product.id) {
-      <app-product-card [product]="product" />
-    }
-  </div>
-</section>
-
-<section class="products-section">
-  <div class="section-header">
-    <h2>Одежда</h2>
-
-    <div class="section-actions">
-      <button class="arrow-btn">
-        <img src="images/arrowLeft.svg" alt="">
-      </button>
-
-      <button class="arrow-btn">
-        <img src="images/arrowRight.svg" alt="">
-      </button>
-
-      <button class="all-btn">
-        Все
-      </button>
+    <div class="products-grid">
+      @for (item of [1, 2, 3, 4]; track item) {
+        <div class="skeleton-card"></div>
+      }
     </div>
-  </div>
+  </section>
 
-  <div class="products-grid">
-    @for (product of clothes(); track product.id) {
-      <app-product-card [product]="product" />
-    }
-  </div>
-</section>
-
-<section class="products-section">
-  <div class="section-header">
-    <h2>Ошейники</h2>
-  </div>
-
-  <div class="products-grid">
-    @for (product of collar(); track product.id) {
-      <app-product-card [product]="product" />
-    }
-  </div>
-</section>
-
-<section class="products-section">
-  <div class="section-header">
-    <h2>Поводки</h2>
-
-    <div class="section-actions">
-      <button class="arrow-btn">
-        <img src="images/arrowLeft.svg" alt="">
-      </button>
-
-      <button class="arrow-btn">
-        <img src="images/arrowRight.svg" alt="">
-      </button>
-
-      <button class="all-btn">
-        Все
-      </button>
+  <section class="products-section">
+    <div class="section-header">
+      <h2>Одежда</h2>
     </div>
-  </div>
 
-  <div class="products-grid">
-    @for (product of leash(); track product.id) {
-      <app-product-card [product]="product" />
-    }
-  </div>
-</section>
+    <div class="products-grid">
+      @for (item of [1, 2, 3, 4]; track item) {
+        <div class="skeleton-card"></div>
+      }
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="section-header">
+      <h2>Ошейники</h2>
+    </div>
+
+    <div class="products-grid">
+      @for (item of [1, 2, 3, 4]; track item) {
+        <div class="skeleton-card"></div>
+      }
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="section-header">
+      <h2>Поводки</h2>
+    </div>
+
+    <div class="products-grid">
+      @for (item of [1, 2, 3, 4]; track item) {
+        <div class="skeleton-card"></div>
+      }
+    </div>
+  </section>
+
+} @else {
+
+  <section class="new-products">
+    <div class="section-header">
+
+      <h2>Новинки ✨</h2>
+
+      <div class="section-actions">
+        <button class="arrow-btn">
+          <img src="images/arrowLeft.svg" alt="Arrow Left">
+        </button>
+
+        <button class="arrow-btn">
+          <img src="images/arrowRight.svg" alt="Arrow Right">
+        </button>
+
+        <button class="all-btn">
+          Все
+        </button>
+      </div>
+
+    </div>
+
+    <div class="products-grid">
+      @for (product of featuredProducts(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="section-header">
+      <h2>Одежда</h2>
+
+      <div class="section-actions">
+        <button class="arrow-btn">
+          <img src="images/arrowLeft.svg" alt="">
+        </button>
+
+        <button class="arrow-btn">
+          <img src="images/arrowRight.svg" alt="">
+        </button>
+
+        <button class="all-btn">
+          Все
+        </button>
+      </div>
+    </div>
+
+    <div class="products-grid">
+      @for (product of clothes(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="section-header">
+      <h2>Ошейники</h2>
+    </div>
+
+    <div class="products-grid">
+      @for (product of collar(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="section-header">
+      <h2>Поводки</h2>
+
+      <div class="section-actions">
+        <button class="arrow-btn">
+          <img src="images/arrowLeft.svg" alt="">
+        </button>
+
+        <button class="arrow-btn">
+          <img src="images/arrowRight.svg" alt="">
+        </button>
+
+        <button class="all-btn">
+          Все
+        </button>
+      </div>
+    </div>
+
+    <div class="products-grid">
+      @for (product of leash(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  </section>
+
+}
