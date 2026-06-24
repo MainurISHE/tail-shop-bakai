@@ -1,8 +1,8 @@
-import { Component, inject, computed } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductService } from '../../entities/product/api/product.service';
 import { CartService } from '../../features/cart/cart.service';
-import { RouterLink } from '@angular/router';
+import { Product } from '../../entities/product/product.types';
 
 @Component({
   selector: 'app-product',
@@ -16,9 +16,22 @@ export class ProductPage {
   productService = inject(ProductService);
   cartService = inject(CartService);
 
-  productId = Number(this.route.snapshot.paramMap.get('id'));
+  product?: Product;
 
-  product = computed(() =>
-    this.productService.products().find((product) => product.id === this.productId),
-  );
+  constructor() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    console.log('ID:', id);
+
+    this.productService.getProduct(id).subscribe({
+      next: (product) => {
+        console.log('PRODUCT:', product);
+        this.product = product;
+      },
+
+      error: (err) => {
+        console.error('ERROR:', err);
+      },
+    });
+  }
 }
