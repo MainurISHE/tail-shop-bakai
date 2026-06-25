@@ -14,4 +14,10 @@ export class CatalogPage {
   productService = inject(ProductService);
 
   products = this.productService.products;
+
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(() => {
+      this.productService.loadProducts();
+    });
+  }
 }

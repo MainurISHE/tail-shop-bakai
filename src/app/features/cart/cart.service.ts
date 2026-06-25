@@ -90,6 +90,10 @@ export class CartService {
     this.saveToStorage();
   }
 
+  isInCart(productId: number) {
+    return this.items().some(item => item.product.id === productId);
+  }
+
   private saveToStorage() {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('cart', JSON.stringify(this.items()));

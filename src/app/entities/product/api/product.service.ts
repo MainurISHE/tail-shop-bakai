@@ -17,6 +17,16 @@ export class ProductService {
   products = signal<Product[]>([]);
 
   constructor() {
+    this.loadProducts();
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete<Product>(`http://localhost:3000/products/${id}`);
+  }
+
+  loadProducts() {
+    this.loading.set(true);
+
     this.http.get<Product[]>('http://localhost:3000/products').subscribe({
       next: (products) => {
         this.products.set(products);

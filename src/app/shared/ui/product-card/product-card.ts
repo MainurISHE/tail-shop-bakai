@@ -24,6 +24,10 @@ export class ProductCardComponent {
   addToCart(event: Event) {
     event.stopPropagation();
 
+    if (this.cartService.isInCart(this.product().id)) {
+      return;
+    }
+
     this.cartService.addToCart(this.product());
   }
 }

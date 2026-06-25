@@ -2,7 +2,13 @@
   <div class="card-image">
     <img [src]="product().image" [alt]="product().title" />
 
-    <button class="add-btn" (click)="addToCart($event)">+</button>
+    <button class="add-btn" (click)="addToCart($event)">
+      @if (cartService.isInCart(product().id)) {
+        ✓
+      } @else {
+        +
+      }
+    </button>
   </div>
 
   <div class="card-content">
@@ -10,7 +16,7 @@
       <span class="price"> {{ product().price | number: '1.2-2' }} ₽ </span>
 
       @if (product().oldPrice) {
-        <span class="old-price"> {{ product().oldPrice | number: '1.2-2'}} ₽ </span>
+        <span class="old-price"> {{ product().oldPrice | number: '1.2-2' }} ₽ </span>
       }
 
       @if (product().discount) {
