@@ -5,12 +5,18 @@
     </button>
 
     @if (menuOpen) {
+      <div class="backdrop" (click)="menuOpen = false"></div>
+    }
+
+    @if (menuOpen) {
       <div class="mobile-menu">
-        <a routerLink="/catalog" (click)="menuOpen = false">Новинки ✨</a>
-        <a>Одежда</a>
-        <a>Ошейники</a>
-        <a>Поводки</a>
-        <a>Головные уборы</a>
+        <a (click)="scrollTo('new-products')"> Новинки ✨ </a>
+
+        <a (click)="scrollTo('clothes')"> Одежда </a>
+
+        <a (click)="scrollTo('collars')"> Ошейники </a>
+
+        <a (click)="scrollTo('leashes')"> Поводки </a>
       </div>
     }
 

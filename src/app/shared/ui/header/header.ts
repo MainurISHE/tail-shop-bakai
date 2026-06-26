@@ -9,10 +9,25 @@ import { CartService } from '../../../features/cart/cart.service';
   styleUrl: './header.scss',
 })
 export class Header {
-  cartService = inject(CartService)
+  cartService = inject(CartService);
   menuOpen = false;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  scrollTo(id: string) {
+    this.menuOpen = false;
+
+    console.log(document.getElementById(id));
+
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
   }
 }

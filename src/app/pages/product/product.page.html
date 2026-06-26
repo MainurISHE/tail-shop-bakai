@@ -3,47 +3,115 @@
 </a>
 
 @if (product) {
-  <div class="product-page">
 
-    <div class="product-image">
-      <img
-        [src]="product.image"
-        [alt]="product.title"
-      />
+<div class="product-page">
+
+  <div class="product-image">
+    <img
+      [src]="product.image"
+      [alt]="product.title"
+    />
+  </div>
+
+  <div class="product-info">
+
+    <span class="category">
+      {{ product.category | uppercase }}
+    </span>
+
+    <h1>
+      {{ product.title }}
+    </h1>
+
+    <div class="rating">
+      ⭐⭐⭐⭐⭐
+      <span>4.9 (124 отзыва)</span>
     </div>
 
-    <div class="product-info">
+    <div class="price-row">
 
-      <h1>
-        {{ product.title }}
-      </h1>
+      <span class="price">
+        {{ product.price | number:'1.0-0' }} ₽
+      </span>
 
-      <div class="price-row">
-
-        <span class="price">
-          {{ product.price }} ₽
+      @if (product.oldPrice) {
+        <span class="old-price">
+          {{ product.oldPrice | number:'1.0-0' }} ₽
         </span>
+      }
 
-        @if (product.oldPrice) {
-          <span class="old-price">
-            {{ product.oldPrice }} ₽
-          </span>
-        }
+      @if (product.discount) {
+        <span class="discount">
+          -{{ product.discount }}%
+        </span>
+      }
 
+    </div>
+
+    <div class="stock">
+      🟢 В наличии
+    </div>
+
+    <p class="description">
+      {{ product.description }}
+    </p>
+
+    <button
+      class="add-btn"
+      (click)="cartService.addToCart(product)"
+    >
+      Добавить в корзину
+    </button>
+
+    <div class="features">
+
+      <h3>Характеристики</h3>
+
+      <div class="feature">
+        <span>Материал</span>
+        <span>Хлопок</span>
       </div>
 
-      <p class="description">
-        {{ product.description }}
-      </p>
+      <div class="feature">
+        <span>Размер</span>
+        <span>S / M / L</span>
+      </div>
 
-      <button
-        class="add-btn"
-        (click)="cartService.addToCart(product)"
-      >
-        Добавить в корзину
-      </button>
+      <div class="feature">
+        <span>Страна</span>
+        <span>Россия</span>
+      </div>
+
+      <div class="feature">
+        <span>Категория</span>
+        <span>{{ product.category }}</span>
+      </div>
+
+    </div>
+
+    <div class="advantages">
+
+      <h3>Почему стоит купить?</h3>
+
+      <p>✅ Натуральный хлопок</p>
+      <p>✅ Комфортная посадка</p>
+      <p>✅ Подходит для ежедневных прогулок</p>
+      <p>✅ Легко стирается</p>
+
+    </div>
+
+    <div class="delivery">
+
+      <h3>Доставка</h3>
+
+      <p>🚚 Доставка 1–3 дня</p>
+      <p>📦 Бесплатная доставка от 3000 ₽</p>
+      <p>🔄 Возврат в течение 14 дней</p>
 
     </div>
 
   </div>
+
+</div>
+
 }

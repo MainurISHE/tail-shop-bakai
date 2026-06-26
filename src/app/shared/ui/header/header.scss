@@ -87,7 +87,7 @@
   top: 70px;
   left: 16px;
 
-  z-index: 1000;
+  z-index: 999;
 
   display: flex;
   flex-direction: column;
@@ -102,10 +102,44 @@
   border-radius: 16px;
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  animation: menuShow .25s ease;
 }
 
 .mobile-menu a {
   text-decoration: none;
   color: #262626;
   font-weight: 500;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.mobile-menu a:hover {
+  color: var(--color-primary);
+}
+
+.backdrop {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, .35);
+
+  z-index: 998;
+}
+
+@keyframes menuShow {
+
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }

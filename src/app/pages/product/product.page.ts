@@ -3,11 +3,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductService } from '../../entities/product/api/product.service';
 import { CartService } from '../../features/cart/cart.service';
 import { Product } from '../../entities/product/product.types';
+import { DecimalPipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, DecimalPipe, UpperCasePipe],
   templateUrl: './product.page.html',
   styleUrl: './product.page.scss',
 })
