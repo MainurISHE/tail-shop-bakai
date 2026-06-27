@@ -116,3 +116,95 @@ h3 {
   font-weight: 400;
   margin: auto;
 }
+
+
+
+@media (max-width: 992px) {
+  .price {
+    font-size: 19px;
+  }
+
+  .old-price {
+    font-size: 14px;
+  }
+
+  .discount {
+    font-size: 13px;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-content {
+    padding-top: 16px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .old-price {
+    font-size: 13px;
+  }
+
+  .discount {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .add-btn {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 0 0 6px var(--color-background);
+  }
+
+  .card-image::after {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .price-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .price {
+    font-size: 17px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  .description {
+    font-size: 13px;
+    -webkit-line-clamp: 3;
+  }
+
+  .add-btn {
+    width: 38px;
+    height: 38px;
+
+    font-size: 15px;
+  }
+}

@@ -143,3 +143,59 @@
   }
 
 }
+
+
+
+@media (max-width: 768px) {
+  .header-top {
+    margin-bottom: 16px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    min-width: auto;
+
+    margin: 0 16px;
+  }
+
+  .logo img {
+    width: 90px;
+  }
+
+  .burger img,
+  .search-btn img,
+  .cart-btn img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-top {
+    height: 64px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .logo img {
+    width: 80px;
+  }
+
+  .mobile-menu {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .mobile-menu a {
+    font-size: 15px;
+  }
+}

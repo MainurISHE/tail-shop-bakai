@@ -1,3 +1,10 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 :root {
   --color-background: #ffffff;
   --color-surface: #ffffff;
@@ -20,6 +27,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  margin: 0;
 }
 
 html {
