@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductService } from '../../entities/product/api/product.service';
 import { CartService } from '../../features/cart/cart.service';
@@ -16,6 +16,7 @@ export class ProductPage {
   route = inject(ActivatedRoute);
   productService = inject(ProductService);
   cartService = inject(CartService);
+  cdr = inject(ChangeDetectorRef);
 
   product?: Product;
 
@@ -26,6 +27,7 @@ export class ProductPage {
       this.productService.getProduct(id).subscribe({
         next: (product) => {
           this.product = product;
+          this.cdr.detectChanges();
         },
 
         error: (err) => {
