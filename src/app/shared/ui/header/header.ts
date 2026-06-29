@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../../features/cart/cart.service';
+import { Container } from '../container/container';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, Container],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

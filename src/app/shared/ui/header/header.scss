@@ -12,6 +12,8 @@
 
   height: 74px;
 
+  padding: 0 8px;
+
   margin-bottom: 32px;
 }
 
@@ -32,6 +34,13 @@
 .burger,
 .search-btn,
 .cart-btn {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: none;
   background: transparent;
   cursor: pointer;
@@ -114,6 +123,10 @@
   cursor: pointer;
 
   transition: .2s;
+}
+
+.cart-btn {
+  position: relative;
 }
 
 .mobile-menu a:hover {

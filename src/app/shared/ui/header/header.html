@@ -1,50 +1,50 @@
 <header class="header">
-  <div class="header-top">
-    <button class="burger" (click)="toggleMenu()">
-      <img src="images/burger.svg" alt="Burger Icon" />
-    </button>
+  <app-container>
+    <div class="header-top">
+      <button class="burger" (click)="toggleMenu()">
+        <img src="images/burger.svg" alt="Burger Icon" />
+      </button>
 
-    @if (menuOpen) {
-      <div class="backdrop" (click)="menuOpen = false"></div>
-    }
+      @if (menuOpen) {
+        <div class="backdrop" (click)="menuOpen = false"></div>
+      }
 
-    @if (menuOpen) {
-      <div class="mobile-menu">
-        <a (click)="scrollTo('new-products')"> Новинки ✨ </a>
+      @if (menuOpen) {
+        <div class="mobile-menu">
+          <a (click)="scrollTo('new-products')">Новинки ✨</a>
+          <a (click)="scrollTo('clothes')">Одежда</a>
+          <a (click)="scrollTo('collars')">Ошейники</a>
+          <a (click)="scrollTo('leashes')">Поводки</a>
+        </div>
+      }
 
-        <a (click)="scrollTo('clothes')"> Одежда </a>
-
-        <a (click)="scrollTo('collars')"> Ошейники </a>
-
-        <a (click)="scrollTo('leashes')"> Поводки </a>
+      <div class="logo">
+        <img src="images/logo.svg" alt="Logo Icon" />
       </div>
-    }
 
-    <div class="logo">
-      <img src="images/logo.svg" alt="Logo Icon" />
+      <div class="header-actions">
+        <button class="search-btn">
+          <img src="images/search.svg" alt="Search Icon" />
+        </button>
+
+        <button class="cart-btn" routerLink="/cart">
+          <img src="images/cart.svg" alt="Cart Icon" />
+
+          @if (cartService.totalItems() > 0) {
+            <span class="cart-badge">
+              {{ cartService.totalItems() }}
+            </span>
+          }
+        </button>
+      </div>
     </div>
 
-    <div class="header-actions">
-      <button class="search-btn">
-        <img src="images/search.svg" alt="Search Icon" />
-      </button>
-
-      <button class="cart-btn" routerLink="/cart">
-        <img src="images/cart.svg" alt="Cart Icon" />
-        @if (cartService.totalItems() > 0) {
-          <span class="cart-badge">
-            {{ cartService.totalItems() }}
-          </span>
-        }
-      </button>
-    </div>
-  </div>
-
-  <nav class="header-nav">
-    <a routerLink="/catalog">Новинки ✨</a>
-    <a routerLink="">Одежда</a>
-    <a routerLink="">Ошейники</a>
-    <a routerLink="">Поводки</a>
-    <a routerLink="">Головные уборы</a>
-  </nav>
+    <nav class="header-nav">
+      <a routerLink="/catalog">Новинки ✨</a>
+      <a>Одежда</a>
+      <a>Ошейники</a>
+      <a>Поводки</a>
+      <a>Головные уборы</a>
+    </nav>
+  </app-container>
 </header>

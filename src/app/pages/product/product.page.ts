@@ -20,19 +20,18 @@ export class ProductPage {
   product?: Product;
 
   constructor() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.route.paramMap.subscribe((params) => {
+      const id = Number(params.get('id'));
 
-    console.log('ID:', id);
+      this.productService.getProduct(id).subscribe({
+        next: (product) => {
+          this.product = product;
+        },
 
-    this.productService.getProduct(id).subscribe({
-      next: (product) => {
-        console.log('PRODUCT:', product);
-        this.product = product;
-      },
-
-      error: (err) => {
-        console.error('ERROR:', err);
-      },
+        error: (err) => {
+          console.error(err);
+        },
+      });
     });
   }
 }

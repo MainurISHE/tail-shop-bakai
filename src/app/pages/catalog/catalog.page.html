@@ -1,9 +1,11 @@
 <a routerLink="/" class="back-btn"> ← Назад </a>
 
-<h1>Catalog Page</h1>
+<app-container>
+  <h1>Catalog Page</h1>
 
-<div class="products-grid">
-  @for (product of products(); track product.id) {
-    <app-product-card [product]="product" />
-  }
-</div>
+  <div class="products-grid">
+    @for (product of products(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+</app-container>
