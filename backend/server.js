@@ -28,7 +28,7 @@ app.get('/products/:id', (req, res) => {
 
 app.post('/products', (req, res) => {
   const newProduct = {
-    id: products.length ? products[product.length - 1].i + 1 : 1,
+    id: products.length ? products[products.length - 1].id + 1 : 1,
     ...req.body,
   };
 
@@ -38,7 +38,7 @@ app.post('/products', (req, res) => {
 });
 
 app.put('/products/:id', (req, res) => {
-  const id = Number(res.params.id);
+  const id = Number(req.params.id);
 
   const index = products.findIndex((product) => product.id === id);
 
@@ -58,7 +58,7 @@ app.put('/products/:id', (req, res) => {
 });
 
 app.delete('/products/:id', (req, res) => {
-  const id = Number(res.params.id);
+  const id = Number(req.params.id);
 
   const index = products.findIndex((product) => product.id === id);
 
