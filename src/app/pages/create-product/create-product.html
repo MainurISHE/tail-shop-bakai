@@ -1,0 +1,67 @@
+<a routerLink="/admin/products" class="back-btn"> ← Назад </a>
+
+<h1>Создание товара</h1>
+
+<form [formGroup]="form" (ngSubmit)="createProduct()">
+  <label>
+    Название
+    <input type="text" formControlName="title" />
+
+    @if (form.controls.title.touched && form.controls.title.invalid) {
+      <small class="error"> Поле обязательно </small>
+    }
+  </label>
+
+  <label>
+    Цена
+    <input type="number" formControlName="price" />
+
+    @if (form.controls.price.touched && form.controls.price.invalid) {
+      <small class="error"> Поле обязательно </small>
+    }
+  </label>
+
+  <label>
+    Старая цена
+    <input type="number" formControlName="oldPrice" />
+  </label>
+
+  <label>
+    Скидка
+    <input type="number" formControlName="discount" />
+  </label>
+
+  <label>
+    Категория
+    <select formControlName="category">
+      <option value="">Выберите категорию</option>
+      <option value="Одежда">clothes</option>
+      <option value="Ошейники">collars</option>
+      <option value="Поводки">leashes</option>
+    </select>
+
+    @if (form.controls.category.touched && form.controls.category.invalid) {
+      <small class="error"> Поле обязательно </small>
+    }
+  </label>
+
+  <label>
+    Описание
+    <textarea formControlName="description"></textarea>
+
+    @if (form.controls.description.touched && form.controls.description.invalid) {
+      <small class="error"> Поле обязательно </small>
+    }
+  </label>
+
+  <label>
+    Картинка
+    <input type="text" formControlName="image" />
+
+    @if (form.controls.image.touched && form.controls.image.invalid) {
+      <small class="error"> Поле обязательно </small>
+    }
+  </label>
+
+  <button type="submit" class="create-btn">Создать товар</button>
+</form>

@@ -1,0 +1,47 @@
+<a routerLink="/admin/products" class="back-btn"> ← Назад </a>
+
+<h1>Редактирование товара</h1>
+
+<form [formGroup]="form" (ngSubmit)="saveProduct()">
+  <label>
+    Название
+    <input type="text" formControlName="title" />
+  </label>
+
+  <label>
+    Цена
+    <input type="number" formControlName="price" />
+  </label>
+
+  <label>
+    Старая цена
+    <input type="number" formControlName="oldPrice" />
+  </label>
+
+  <label>
+    Скидка
+    <input type="number" formControlName="discount" />
+  </label>
+
+  <label>
+    Категория
+    <select formControlName="category">
+      <option value="">Выберите категорию</option>
+      <option value="Одежда">clothes</option>
+      <option value="Ошейники">collars</option>
+      <option value="Поводки">leashes</option>
+    </select>
+  </label>
+
+  <label>
+    Описание
+    <textarea formControlName="description"></textarea>
+  </label>
+
+  <label>
+    Картинка
+    <input type="text" formControlName="image" />
+  </label>
+
+  <button type="submit" class="create-btn">Сохранить изменения</button>
+</form>

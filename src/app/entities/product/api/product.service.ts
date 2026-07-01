@@ -24,6 +24,14 @@ export class ProductService {
     return this.http.delete<Product>(`http://localhost:3000/products/${id}`);
   }
 
+  createProduct(product: Omit<Product, 'id'>) {
+    return this.http.post<Product>('http://localhost:3000/products', product);
+  }
+
+  updateProduct(id: number, product: Omit<Product, 'id'>) {
+    return this.http.put<Product>(`http://localhost:3000/products/${id}`, product);
+  }
+
   loadProducts() {
     this.loading.set(true);
 
