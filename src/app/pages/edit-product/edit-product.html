@@ -27,9 +27,10 @@
     Категория
     <select formControlName="category">
       <option value="">Выберите категорию</option>
-      <option value="Одежда">clothes</option>
-      <option value="Ошейники">collars</option>
-      <option value="Поводки">leashes</option>
+      <option value="clothes">Одежда</option>
+      <option value="collars">Ошейники</option>
+      <option value="leashes">Поводки</option>
+      <option value="new-clothes">Новая одежда</option>
     </select>
   </label>
 
@@ -41,6 +42,8 @@
   <label>
     Картинка
     <input type="text" formControlName="image" />
+
+    <img [src]="form.value.image" alt="Preview" class="preview" />
   </label>
 
   <button type="submit" class="create-btn">Сохранить изменения</button>
