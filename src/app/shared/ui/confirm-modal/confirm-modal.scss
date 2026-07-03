@@ -1,0 +1,92 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, .45);
+
+  z-index: 9999;
+}
+
+.modal {
+  width: 420px;
+
+  padding: 28px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+
+  animation: show .18s ease;
+}
+
+.modal h2 {
+  margin-bottom: 12px;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.modal p {
+  margin-bottom: 28px;
+
+  color: #666;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.actions button {
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 12px 24px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: .2s;
+}
+
+.cancel-btn {
+  background: #f2f3f5;
+}
+
+.cancel-btn:hover {
+  background: #e6e7ea;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+@keyframes show {
+
+  from {
+    opacity: 0;
+    transform: scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}

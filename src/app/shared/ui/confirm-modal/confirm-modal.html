@@ -1,0 +1,29 @@
+<div class="overlay">
+
+  <div class="modal">
+
+    <h2>{{ title }}</h2>
+
+    <p>{{ message }}</p>
+
+    <div class="actions">
+
+      <button
+        class="cancel-btn"
+        (click)="onCancel()"
+      >
+        Отмена
+      </button>
+
+      <button
+        class="delete-btn"
+        (click)="onConfirm()"
+      >
+        Удалить
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

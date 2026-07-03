@@ -17,6 +17,7 @@ export class EditProduct {
 
   productService = inject(ProductService);
   fb = inject(FormBuilder);
+  imagePreview = '';
 
   productId = Number(this.route.snapshot.paramMap.get('id'));
 
@@ -36,12 +37,13 @@ export class EditProduct {
         this.form.patchValue({
           title: product.title,
           price: product.price,
-          oldPrice: product.oldPrice,
-          discount: product.discount,
+          oldPrice: product.oldPrice ?? 0,
           category: product.category,
           description: product.description,
           image: product.image,
         });
+
+        this.imagePreview = product.image;
       },
 
       error: (err) => {
@@ -68,6 +70,22 @@ export class EditProduct {
       error: (err) => {
         console.error(err);
       },
+    });
+  }
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    if (!input.files?.length) {
+      return;
+    }
+
+    const file = input.files[0];
+
+    this.imagePreview = URL.createObjectURL(file);
+
+    this.form.patchValue({
+      image: file.name,
     });
   }
 }

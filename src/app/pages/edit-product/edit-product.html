@@ -40,11 +40,16 @@
   </label>
 
   <label>
-    Картинка
-    <input type="text" formControlName="image" />
+    Изображение
 
-    <img [src]="form.value.image" alt="Preview" class="preview" />
+    <input type="file" accept="image/*" (change)="onFileSelected($event)" />
   </label>
+
+  @if (imagePreview) {
+    <div class="preview">
+      <img [src]="imagePreview" alt="Preview" />
+    </div>
+  }
 
   <button type="submit" class="create-btn">Сохранить изменения</button>
 </form>

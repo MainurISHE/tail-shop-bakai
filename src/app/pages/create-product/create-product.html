@@ -27,11 +27,6 @@
   </label>
 
   <label>
-    Скидка
-    <input type="number" formControlName="discount" />
-  </label>
-
-  <label>
     Категория
     <select formControlName="category">
       <option value="">Выберите категорию</option>
@@ -56,15 +51,22 @@
   </label>
 
   <label>
-    Картинка
-    <input type="text" formControlName="image" />
+    Изображение
 
-    @if (form.controls.image.touched && form.controls.image.invalid) {
-      <small class="error"> Поле обязательно </small>
-    }
-
-    <img [src]="form.value.image" alt="Preview" class="preview" />
+    <input type="file" accept="image/*" (change)="onFileSelected($event)" />
   </label>
+
+  @if (imagePreview) {
+    <div class="preview">
+      <img [src]="imagePreview" alt="Preview" />
+    </div>
+  }
 
   <button type="submit" class="create-btn">Создать товар</button>
 </form>
+
+@if (toastVisible) {
+  <div class="toast">
+    ✔ {{ toastMessage }}
+  </div>
+}
